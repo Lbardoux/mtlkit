@@ -1,0 +1,36 @@
+<PipelineConfig>
+    <depth>
+        <!-- true or false -->
+        <enableDepthTest>true</enableDepthTest>
+        <!--
+        Possible values :
+            - less
+            - equal
+            - less_equal
+            - never
+            - greater
+            - not_equal
+            - greater_equal
+            - always
+        -->
+        <depthFunction>less</depthFunction>
+        <!-- This value will be interpreted as a float. -->
+        <clearDepthValue_f>1.0</clearDepthValue_f>
+    </depth>
+
+    <clearColor>
+        <!-- These values will be interpreted as float. -->
+        <red_f>0.0</red_f>
+        <green_f>0.0</green_f>
+        <blue_f>0.0</blue_f>
+        <alpha_f>1.0</alpha_f>
+    </clearColor>
+    
+	<cullFace>
+		<enableCulling>true</enableCulling>
+		<!-- clockwise or counter -->
+		<rotationDirection>counter</rotationDirection>
+		<!-- front, back, front_back -->
+		<keeping>front</keeping>
+	</cullFace>
+</PipelineConfig>
