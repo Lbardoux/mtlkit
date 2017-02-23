@@ -21,7 +21,7 @@
  *    - 
  * 
  */
-#define KEY(uppercase) SDL_SCANCODE_(uppercase)
+#define KEY(uppercase) SDL_SCANCODE_##uppercase
 
 #endif
 

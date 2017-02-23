@@ -37,7 +37,8 @@ HEADERS += \
     include/Pipeline.hpp \
     include/Pipeline_traits.hpp \
     include/vec.hpp \
-    include/keymap.hpp
+    include/keymap.hpp \
+    include/mat.hpp
 
 QMAKE_CXXFLAGS += -std=c++11 -Wall -Wextra 
 LIBS += -lGLEW -lSDL2 -lSDL2_image -lGL

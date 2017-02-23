@@ -21,19 +21,19 @@
 //! @cond SKIP_THIS_DOXYGEN
 namespace _shader_trait // Do not try to use that.
 {
-	/*
-	 * Ladies and gentlemen, this is a trait.
-	 * Ugly isn't it ?
-	 * It ensures than the GLenum given as a template parameter for the Shader class
-	 * is valid.
-	 */
+    /*
+     * Ladies and gentlemen, this is a trait.
+     * Ugly isn't it ?
+     * It ensures than the GLenum given as a template parameter for the Shader class
+     * is valid.
+     */
     template<GLenum T> struct _is_valid_GLenum                            : public std::false_type {};
     template<>         struct _is_valid_GLenum<GL_FRAGMENT_SHADER>        : public std::true_type  {};
     template<>         struct _is_valid_GLenum<GL_VERTEX_SHADER>          : public std::true_type  {};
     template<>         struct _is_valid_GLenum<GL_COMPUTE_SHADER>         : public std::true_type  {};
-	template<>         struct _is_valid_GLenum<GL_TESS_CONTROL_SHADER>    : public std::true_type  {};
-	template<>         struct _is_valid_GLenum<GL_TESS_EVALUATION_SHADER> : public std::true_type  {};
-	template<>         struct _is_valid_GLenum<GL_GEOMETRY_SHADER>        : public std::true_type  {};
+    template<>         struct _is_valid_GLenum<GL_TESS_CONTROL_SHADER>    : public std::true_type  {};
+    template<>         struct _is_valid_GLenum<GL_TESS_EVALUATION_SHADER> : public std::true_type  {};
+    template<>         struct _is_valid_GLenum<GL_GEOMETRY_SHADER>        : public std::true_type  {};
 }
 //! @endcond
 
@@ -223,16 +223,16 @@ class Shader
         std::string code(void) const noexcept
         {
             GLint sourceLength;
-			glGetShaderiv(this->_id, GL_SHADER_SOURCE_LENGTH, &sourceLength);
-			if (sourceLength > 0)
-			{
-				GLchar* source = new GLchar[sourceLength];
-				glGetShaderSource(this->_id, sourceLength, nullptr, source);
-				std::string buffer(source);
-				delete[] source;
-				return buffer;
-			}
-			return std::string("");
+            glGetShaderiv(this->_id, GL_SHADER_SOURCE_LENGTH, &sourceLength);
+            if (sourceLength > 0)
+            {
+                GLchar* source = new GLchar[sourceLength];
+                glGetShaderSource(this->_id, sourceLength, nullptr, source);
+                std::string buffer(source);
+                delete[] source;
+                return buffer;
+            }
+            return std::string("");
         }
         /**
          * @brief Gets the source code of the current shader.

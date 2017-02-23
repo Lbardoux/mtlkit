@@ -25,18 +25,18 @@
 template<typename... FunctionArguments>
 int32_t renderLoop(uint32_t frameRate, bool (*drawFunction)(FunctionArguments&...), FunctionArguments&... args)
 {
-	bool     stopLoop = false;
-	uint32_t delay    = 1000/frameRate;
-	glViewport(0, 0, GlContext::windowWidth(), GlContext::windowHeight());
-	
-	while(stopLoop != true) 
-	{
-		stopLoop |= EventManager::catchEvents();
-		stopLoop |= drawFunction(args...);
-		SDL_GL_SwapWindow(GlContext::window());
-		SDL_Delay(delay);
-	}
-	return 0;
+    bool     stopLoop = false;
+    uint32_t delay    = 1000/frameRate;
+    glViewport(0, 0, GlContext::windowWidth(), GlContext::windowHeight());
+    
+    while(stopLoop != true) 
+    {
+        stopLoop |= EventManager::catchEvents();
+        stopLoop |= drawFunction(args...);
+        SDL_GL_SwapWindow(GlContext::window());
+        SDL_Delay(delay);
+    }
+    return 0;
 }
 
 #endif
